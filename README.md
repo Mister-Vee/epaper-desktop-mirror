@@ -22,8 +22,25 @@ pip install git+https://github.com/GregDMeyer/IT8951.git
 python3 mirror_desktop.py
 ```
 
-**Set your own VCOM.** The script uses `vcom=-1.42`, which is right for my panel only. Use the value printed on your
-display's ribbon cable or label (it is in `AutoEPDDisplay(vcom=..., spi_hz=...)`).
+**Set your own VCOM.** `VCOM = -1.42` at the top of `mirror_desktop.py` is right for my panel only. Use the value
+printed on your display's ribbon cable or label. The other settings are next to it: the SPI speed (lower it if updates
+look garbled), how big a change counts, how fast it checks, and how often it does a full ghost-clearing refresh.
+
+## Checks
+
+The image logic can be checked on any computer, without a Pi or a panel:
+
+```sh
+pip install Pillow numpy
+python -m unittest test_logic
+```
+
+## The 2023 version
+
+`mirror_desktop_2023.py` is the original, kept for the record. It crashes on its second frame (it sums a colour axis that
+a grey image doesn't have), slows down when small things change, resizes after cutting to 16 greys, and misses the last
+row and column of each change. `mirror_desktop.py` fixes those and adds a regular full refresh to clear ghosting.
+The fixed version is checked on a PC; it hasn't been run on the panel yet.
 
 ## Credits
 
