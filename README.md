@@ -30,3 +30,7 @@ display's ribbon cable or label (it is in `AutoEPDDisplay(vcom=..., spi_hz=...)`
 Drives the display with GregDMeyer's [IT8951](https://github.com/GregDMeyer/IT8951) library (installed separately).
 
 From [The Orange Garage](https://theorangegarage.com), Kent, Ohio.
+
+## Licence
+
+MIT. See [LICENSE](LICENSE).
